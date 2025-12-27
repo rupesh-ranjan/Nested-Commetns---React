@@ -1,16 +1,17 @@
-.comment {
+.add-comment {
     display: flex;
     gap: 10px;
     width: 100vw;
 }
 
-.comment-text {
+.comment-textarea {
     background-color: #232323;
     flex: 1;
     color: white;
     border: 2px solid #ffffff;
     border-radius: 3px;
-    padding: 5px;
+    padding: 7px;
+    box-sizing: border-box;
 }
 
 .btn {
@@ -26,31 +27,31 @@
     background-color: #0000c6;
 }
 
-.btn-comment {
+.btn-comment-add {
     padding: 0 20px;
 }
 
-.nested-comments {
+.comment-container {
     margin-top: 10px;
     background-color: #242c2d;
     padding: 10px;
     border-radius: 3px;
 }
 
-.nested-comment {
+.comment {
     margin: 5px 0;
 }
 
-.nested-comment.text {
+.comment.text {
     margin-bottom: 10px;
 }
 
-.nested-comments-buttons {
+.comment-buttons {
     margin-top: 10px;
     display: flex;
     gap: 7px;
 }
 
-.btn-nested {
+.btn-comment {
     padding: 5px 10px;
 }

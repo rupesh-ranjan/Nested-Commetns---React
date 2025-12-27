@@ -1,48 +1,26 @@
-// import Comment from "./Comment";
+import Comment from "./Comment";
 
 import { useState } from "react";
 
 function NestedComments({ comments }) {
-    const [replyOpen, setReplyOpen] = useState(false);
-
+    const [comment, setComment] = useState("");
     return (
         <>
+            <div className="add-comment">
+                <textarea
+                    name="comment"
+                    rows={5}
+                    width="100%"
+                    placeholder="Add a new comment..."
+                    className="comment-textarea"
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                />
+                <button className="btn btn-comment-add">Add Comment</button>
+            </div>
+
             {comments.map((comment) => (
-                <div key={comment.id} className="nested-comments">
-                    <>
-                        <p className="nested-comment text">
-                            <b>{comment.text}</b>
-                        </p>
-                        <p className="nested-comment vote">
-                            Votes: {comment.votes}
-                        </p>
-                        <p className="nested-comment timestamp">
-                            {new Date(comment.timestamp).toLocaleString(
-                                "en-IN",
-                                {
-                                    day: "2-digit",
-                                    month: "short",
-                                    year: "numeric",
-                                    hour: "2-digit",
-                                    minute: "2-digit",
-                                }
-                            )}
-                        </p>
-                    </>
-                    <div className="nested-comments-buttons">
-                        <button className="btn btn-nested">👍</button>
-                        <button className="btn btn-nested"> 👎</button>
-                        <button
-                            className="btn btn-nested"
-                            onClick={() => setReplyOpen(!replyOpen)}
-                        >
-                            Reply
-                        </button>
-                        <button className="btn btn-nested">Edit</button>
-                        <button className="btn btn-nested">Delete</button>
-                    </div>
-                    {replyOpen && <NestedComments comments={comment.replies} />}
-                </div>
+                <Comment key={comment.id} comment={comment} />
             ))}
         </>
     );
