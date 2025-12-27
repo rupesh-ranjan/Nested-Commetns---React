@@ -1,0 +1,56 @@
+.comment {
+    display: flex;
+    gap: 10px;
+    width: 100vw;
+}
+
+.comment-text {
+    background-color: #232323;
+    flex: 1;
+    color: white;
+    border: 2px solid #ffffff;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.btn {
+    background-color: #0000ff;
+    border: 0;
+    border-radius: 3px;
+    font-size: larger;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0000c6;
+}
+
+.btn-comment {
+    padding: 0 20px;
+}
+
+.nested-comments {
+    margin-top: 10px;
+    background-color: #242c2d;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.nested-comment {
+    margin: 5px 0;
+}
+
+.nested-comment.text {
+    margin-bottom: 10px;
+}
+
+.nested-comments-buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 7px;
+}
+
+.btn-nested {
+    padding: 5px 10px;
+}

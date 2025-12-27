@@ -1,0 +1,45 @@
+[
+    {
+        "id": 1,
+        "author": "Alice",
+        "text": "This is the first comment",
+        "timestamp": "2024-01-10T10:00:00Z",
+        "votes": 12,
+        "replies": [
+            {
+                "id": 2,
+                "author": "Bob",
+                "text": "This is a reply to the first comment",
+                "timestamp": "2024-01-10T10:05:00Z",
+                "votes": 5,
+                "replies": [
+                    {
+                        "id": 3,
+                        "author": "Charlie",
+                        "text": "Replying to Bob’s comment",
+                        "timestamp": "2024-01-10T10:10:00Z",
+                        "votes": 2,
+                        "replies": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "author": "David",
+        "text": "This is another top-level comment",
+        "timestamp": "2024-01-10T11:00:00Z",
+        "votes": 8,
+        "replies": [
+            {
+                "id": 5,
+                "author": "Emma",
+                "text": "Reply to second main comment",
+                "timestamp": "2024-01-10T11:10:00Z",
+                "votes": 3,
+                "replies": []
+            }
+        ]
+    }
+]
