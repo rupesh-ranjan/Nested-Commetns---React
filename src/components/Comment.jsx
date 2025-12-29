@@ -1,7 +1,8 @@
 import { useState } from "react";
+import AddComment from "./AddComment";
 
 function Comment({ comment }) {
-    const [replyOpen, setReplyOpen] = useState(false);
+    const [expand, setExpand] = useState(false);
     return (
         <div className="comment-container">
             <div className="">
@@ -24,17 +25,21 @@ function Comment({ comment }) {
                 <button className="btn btn-comment"> 👎</button>
                 <button
                     className="btn btn-comment"
-                    onClick={() => setReplyOpen(!replyOpen)}
+                    onClick={() => setExpand(!expand)}
                 >
-                    Reply
+                    {expand ? "Hide Replies" : "Reply"}
                 </button>
                 <button className="btn btn-comment">Edit</button>
                 <button className="btn btn-comment">Delete</button>
             </div>
-            {replyOpen &&
-                comment.replies.map((reply) => (
-                    <Comment key={reply.id} comment={reply} />
-                ))}
+            {expand && (
+                <>
+                    <AddComment />
+                    {comment.replies.map((reply) => (
+                        <Comment key={reply.id} comment={reply} />
+                    ))}
+                </>
+            )}
         </div>
     );
 }
