@@ -1,7 +1,16 @@
 import { useState } from "react";
 
-function AddComment() {
+function AddComment({ addComment, commentId, onSubmit = () => {} }) {
     const [comment, setComment] = useState("");
+
+    function handleAddComment() {
+        if (comment.trim()) {
+            console.log(comment);
+            addComment(commentId, comment);
+            setComment("");
+            onSubmit();
+        }
+    }
 
     return (
         <div className="add-comment">
@@ -14,7 +23,9 @@ function AddComment() {
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
             />
-            <button className="btn btn-comment-add">Add Comment</button>
+            <button className="btn btn-comment-add" onClick={handleAddComment}>
+                Add Comment
+            </button>
         </div>
     );
 }

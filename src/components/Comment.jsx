@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AddComment from "./AddComment";
 
-function Comment({ comment }) {
+function Comment({ addComment, comment, onSubmit = () => {} }) {
     const [expand, setExpand] = useState(false);
     return (
         <div className="comment-container">
@@ -34,9 +34,18 @@ function Comment({ comment }) {
             </div>
             {expand && (
                 <>
-                    <AddComment />
+                    <AddComment
+                        addComment={addComment}
+                        commentId={comment.id}
+                        onSubmit={onSubmit}
+                    />
                     {comment.replies.map((reply) => (
-                        <Comment key={reply.id} comment={reply} />
+                        <Comment
+                            key={reply.id}
+                            comment={reply}
+                            onSubmit={onSubmit}
+                            addComment={addComment}
+                        />
                     ))}
                 </>
             )}
